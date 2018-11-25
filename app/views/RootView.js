@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
-import NotificationsManager from '../utils/NotificationsManager'
+import { Button, StyleSheet, View } from 'react-native'
+import NotificationsManager from 'app/utils/NotificationsManager'
 
 class RootView extends React.Component {
   static navigationOptions = {
@@ -16,7 +16,7 @@ class RootView extends React.Component {
     return (
       <View style={styles.container}>
         <Button
-          onPress={NotificationsManager.scheduleAppointmentConfirmationPN}
+          onPress={this.gotoBookAppointmentView}
           title="Book Appointment"
         />
         <Button
@@ -26,6 +26,7 @@ class RootView extends React.Component {
       </View>
     )
   }
+  gotoBookAppointmentView = () => this.props.navigation.navigate('BookAppointmentView')
 }
 
 const styles = StyleSheet.create({
