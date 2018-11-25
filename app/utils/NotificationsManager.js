@@ -31,11 +31,26 @@ const scheduleAppointmentConfirmationPN = () => {
   }, defaultNotif)
 
   Notifications.scheduleLocalNotificationAsync(appointmentConfirmationNotif, {
-    time: (new Date()).getTime() + 5000
+    time: (new Date()).getTime() + 3000
+  })
+}
+
+const scheduleAvailableAppointment = () => {
+  const availableAppointmentNotif = _.merge({
+    title: 'Available Appointment @ 0900hrs',
+    body: 'Snap up this slot now!',
+    data: {
+      availableAppointment: true
+    }
+  }, defaultNotif)
+
+  Notifications.scheduleLocalNotificationAsync(availableAppointmentNotif, {
+    time: (new Date()).getTime() + 3000
   })
 }
 
 export default {
   createDefaultChannel,
-  scheduleAppointmentConfirmationPN
+  scheduleAppointmentConfirmationPN,
+  scheduleAvailableAppointment
 }

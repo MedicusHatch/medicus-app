@@ -21,10 +21,17 @@ class RootView extends React.Component {
         <Button
           onPress={this.gotoBookAppointmentView}
           title="Book Appointment"
+          style={styles.button}
         />
         <Button
           onPress={NotificationsManager.scheduleAppointmentConfirmationPN}
           title="Appointment Confirmation PN"
+          style={styles.button}
+        />
+        <Button
+          onPress={NotificationsManager.scheduleAvailableAppointment}
+          title="Available Appointment PN"
+          style={styles.button}
         />
       </View>
     )
@@ -37,8 +44,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
+    padding: 30
   },
+  button: {
+    marginTop: 20,
+    marginBottom: 20
+  }
 })
 
 export default RootView

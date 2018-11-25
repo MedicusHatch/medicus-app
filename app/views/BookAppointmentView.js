@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, Alert, Button } from 'react-native'
 
 import HeaderText from 'app/components/HeaderText'
 import NormalText from 'app/components/NormalText'
@@ -12,11 +12,12 @@ class BookAppointmentView extends React.Component {
   constructor(){
     super()
     this.state = {
-      startTime: 9
+      startTime: '09:00hrs',
+      endTime: '17:00hrs'
     }
   }
   render(){
-    const { startTime } = this.state
+    const { startTime, endTime } = this.state
     return (
       <View style={styles.container}>
         <HeaderText>Westminster Clinic</HeaderText>
@@ -25,18 +26,34 @@ class BookAppointmentView extends React.Component {
         </NormalText>
         <TimePicker
           selectedValue={startTime}
-          onValueChange={this.onValueChange}
+          onValueChange={this.onValueChange('startTime')}
+        />
+        <NormalText>
+          and
+        </NormalText>
+        <TimePicker
+          selectedValue={endTime}
+          onValueChange={this.onValueChange('endTime')}
+        />
+        <Button
+          onPress={this.notifyMe}
+          title="Notify Me"
         />
       </View>
     )
   }
   onValueChange = (field) => newVal => this.setState({ [field]: newVal })
+  notifyMe = () => {
+    Alert.alert("You're on the waitlist", "We'll notify you if there's an available slot")
+    this.props.navigation.goBack()
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    padding: 20,
   }
 })
 
