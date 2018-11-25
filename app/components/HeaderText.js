@@ -4,7 +4,7 @@ import { StyleSheet, Text } from 'react-native'
 class HeaderText extends React.Component {
   render(){
     return (
-      <Text style={styles.headerText} />
+      <Text {...this.props} style={styles.headerText} />
     )
   }
 }

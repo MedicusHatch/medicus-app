@@ -4,7 +4,7 @@ import { StyleSheet, Text } from 'react-native'
 class NormalText extends React.Component {
   render(){
     return (
-      <Text style={styles.normalText} />
+      <Text {...this.props} style={styles.normalText} />
     )
   }
 }

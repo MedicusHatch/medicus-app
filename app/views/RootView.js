@@ -1,5 +1,7 @@
 import React from 'react'
 import { Button, StyleSheet, View } from 'react-native'
+
+import HeaderText from 'app/components/HeaderText'
 import NotificationsManager from 'app/utils/NotificationsManager'
 
 class RootView extends React.Component {
@@ -15,6 +17,7 @@ class RootView extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <HeaderText>Root</HeaderText>
         <Button
           onPress={this.gotoBookAppointmentView}
           title="Book Appointment"
